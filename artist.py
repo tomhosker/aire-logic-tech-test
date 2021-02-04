@@ -6,11 +6,11 @@ to its various fields.
 
 # Standard imports.
 import os
-from numpy import mean, std
 from urllib.parse import quote_plus
+from numpy import mean, std
 
 # Non-standard imports.
-from progressbar import progressbar
+from progressbar import progressbar as progbar
 
 # Local imports.
 from db_manager import DBManager, DEFAULT_PATH_TO_DB
@@ -97,7 +97,7 @@ class Artist:
         result = []
         list_of_tracks = list(self.set_of_tracks)
         print("Gathering data for all tracks by "+self.name+"...")
-        for track_title in progressbar(list_of_tracks):
+        for track_title in progbar(list_of_tracks):
             track = Track(self.name, track_title)
             result.append(track)
         return result
@@ -148,7 +148,7 @@ def get_recordings(mbid_of_artist, offset):
     """ Get a list of the names of recordings for a given artist and offset,
     which is a means of pagination. """
     if not mbid_of_artist:
-        return
+        return False
     result = []
     xml_obj = get_xml_from_url(MUSIC_BRAINZ_STEM+
                                "recording?artist="+mbid_of_artist+
@@ -189,8 +189,8 @@ def demo():
 
 def run():
     """ Run this file. """
-    #test()
-    demo()
+    test()
+    #demo()
 
 if __name__ == "__main__":
     run()

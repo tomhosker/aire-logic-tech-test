@@ -117,7 +117,8 @@ class DBManager:
 ####################
 
 def dict_factory(cursor, row):
-    d = {}
+    """ Ensure that fetch functions return lists of dictionaries. """
+    result = {}
     for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
+        result[col[0]] = row[idx]
+    return result
