@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# This script installs any third party software necessary for running the
+# code in this repository.
+
+# Run me using `sh installer`.
+
+echo "Installing third party software for Aire Logic Tech Test..."
+
+sudo apt install sqlitebrowser
+pip3 install progressbar
+
+echo "Installation complete."
