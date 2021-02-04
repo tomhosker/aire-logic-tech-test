@@ -11,6 +11,7 @@ This program was intended to run on an **Ubuntu device**, with an internet conne
 1. Install the program's third party requirements by running `sh installer`.
 1. Run the program using `python3 command_line_interface.py`.
 1. The results of previous searches can be found by inspecting the file **`data.db`**.
+    * This local database also serves as a cache, **greatly speeding up searches** where an artist's data have previously been stored locally.
 
 ![What the CLI should look like](intended_cli.png)
 
